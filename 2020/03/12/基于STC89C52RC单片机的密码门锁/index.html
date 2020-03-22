@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200117234806946.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjU4NTMxNg==,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200117234858493.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjU4NTMxNg==,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-03-12T07:57:36.000Z">
-<meta property="article:modified_time" content="2020-03-22T11:05:28.097Z">
+<meta property="article:modified_time" content="2020-03-22T12:56:41.823Z">
 <meta property="article:author" content="TheInkTears">
 <meta property="article:tag" content="目录">
 <meta property="article:tag" content="教程">
@@ -186,6 +186,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="门锁介绍"><a href="#门锁介绍" class="headerlink" title="门锁介绍"></a>门锁介绍</h1><p>这个门锁是我2018年暑假做的一个小作品，是我入门单片机后的第二个作品，第一个是一个船，使用串口通讯，完成了对船的遥控，而在假期，利用放假时间做了这个门锁，做出来已经好长时间了，就做个简单的展示，为刚学51单片机、而且想做一个自己作品的同学提供一个参考。门锁整体由外部（安装后的室外）矩阵键盘和1602显示器，一个电源开关、内部（室内）主控芯片，两个开关门状态控制开关，一个电源开关，一个蜂鸣器，一个L298N电机驱动及一个电动推杆组成。在外部通过4*4矩阵键盘输入密码和操作控制，LCD1602显示器显示状态提示或已输入密码位数；内部由两个按键分别控制开关门。开门或关门后有灯光和蜂鸣器提示状态。</p>
+<a id="more"></a>
+
 <h1 id="门锁软硬件介绍"><a href="#门锁软硬件介绍" class="headerlink" title="门锁软硬件介绍"></a>门锁软硬件介绍</h1><h2 id="STC8989C52单片机"><a href="#STC8989C52单片机" class="headerlink" title="STC8989C52单片机"></a>STC8989C52单片机</h2><p>STC89C52RC是STC公司生产的一种低功耗、高性能CMOS8位微控制器，具有8K字节系统可编程Flash存储器。STC89C52使用经典的MCS-51内核，但是做了很多的改进使得芯片具有传统51单片机不具备的功能。在单芯片上，拥有灵巧的8 位CPU 和在系统可编程Flash，使得STC89C52为众多嵌入式控制应用系统提供高灵活、超有效的解决方案。<br> 8k字节Flash，512字节RAM， 32 位I/O 口线，看门狗定时器，内置4KB EEPROM，MAX810复位电路，3个16 位定时器/计数器，4个外部中断，一个7向量4级中断结构（兼容传统51的5向量2级中断结构），全双工串行口。另外 STC89C52 可降至0Hz 静态逻辑操作，支持2种软件可选择节电模式。空闲模式下，CPU 停止工作，允许RAM、定时器/计数器、串口、中断继续工作。掉电保护方式下，RAM内容被保存，振荡器被冻结，单片机一切工作停止，直到下一个中断或硬件复位为止。最高运作频率35MHz，6T/12T可选。</p>
 <p>  <img src="https://img-blog.csdnimg.cn/20200117223525545.png" alt="在这里插入图片描述"></p>
 <h2 id="LCD1602显示屏"><a href="#LCD1602显示屏" class="headerlink" title="LCD1602显示屏"></a>LCD1602显示屏</h2><p>工业字符型液晶，能够同时显示16x02即32个字符，16列2行）。1602液晶也叫1602字符型液晶，它是一种专门用来显示字母、数字、符号等的点阵型液晶模块。它由若干个5X7或者5X11等点阵字符位组成，每个点阵字符位都可以显示一个字符，每位之间有一个点距的间隔，每行之间也有间隔，起到了字符间距和行间距的作用，正因为如此所以它不能很好地显示图形（用自定义CGRAM，显示效果也不好）。1602LCD是指显示的内容为16X2,即可以显示两行，每行16个字符液晶模块（显示字符和数字）。市面上字符液晶大多数是基于HD44780液晶芯片的，控制原理是完全相同的，因此基于HD44780写的控制程序可以很方便地应用于市面上大部分的字符型液晶。<br><img src="https://img-blog.csdnimg.cn/20200117223951195.png" alt="lcd1602"><br>LCD1602操作参考：<br>链接：<a href="https://blog.csdn.net/weixin_42133183/article/details/80911996" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42133183/article/details/80911996</a><br>链接：<a href="https://blog.csdn.net/qq_34706280/article/details/53165561" target="_blank" rel="noopener">https://blog.csdn.net/qq_34706280/article/details/53165561</a><br>链接 :<a href="https://blog.csdn.net/weixin_42625444/article/details/84331059" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42625444/article/details/84331059</a><br>上面两个大佬的介绍很详尽了，而我也基本参考各种例程，将其简单驱动起来，显示我想要的字符。<br>故，我用P2 ^3作为LCD寄存器选择引脚，P2 ^4作为读写选择引脚，P2 ^5作为读写使能引脚，P0作为数据引脚。根据时序写出写数据和写命令函数。</p>
@@ -479,15 +481,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">yilia主题优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
