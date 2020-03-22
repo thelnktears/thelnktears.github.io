@@ -6,21 +6,85 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>我的第一篇文章 | TheInkTears</title>
+  <title>搭建hexo静态博客与yilia主题优化 | TheInkTears</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我的第一篇文章兜兜转转到了大三下半学期，浑浑噩噩的过完了大学大部分时间，自己一直告诉自己贪多嚼不烂，但好奇心使然，一直在接触自己感兴趣的方面，于是花了好多时间，什么都没学好。但好在接触了一些东西，知道了好多东西，知道自己该去认认真真学哪些，但又因自己不是科班，要学的东西太多太复杂，自己下不定决心好好去学，感兴趣的才可以学的快，有信心学下去。还有自己的自制力，要能控制好自己，一件事要有恒心，认定一件">
+  <meta name="description" content="一、目的作为一个学程序的，有个个人博客，平时写写自己的学习笔记，记录一下自己的生活，写一些自己在学习过程中遇到的一些坑，还有记录一下自己的项目作品，我觉得这是一个很有趣的事，另外，个人博客在自己找工作的过程中是一个很好的加分项。 我其实也是一个小白，什么都不会，一些网页的知识都不知道，而我跟随大佬一步步搭建出了我的个人博客，故此记录一下整个过程，写一些我遇到的坑。 大佬视频：手把手教你从0开始搭建">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇文章">
-<meta property="og:url" content="http://yoursite.com/2020/03/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/index.html">
+<meta property="og:title" content="搭建hexo静态博客与yilia主题优化">
+<meta property="og:url" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="TheInkTears">
-<meta property="og:description" content="我的第一篇文章兜兜转转到了大三下半学期，浑浑噩噩的过完了大学大部分时间，自己一直告诉自己贪多嚼不烂，但好奇心使然，一直在接触自己感兴趣的方面，于是花了好多时间，什么都没学好。但好在接触了一些东西，知道了好多东西，知道自己该去认认真真学哪些，但又因自己不是科班，要学的东西太多太复杂，自己下不定决心好好去学，感兴趣的才可以学的快，有信心学下去。还有自己的自制力，要能控制好自己，一件事要有恒心，认定一件">
+<meta property="og:description" content="一、目的作为一个学程序的，有个个人博客，平时写写自己的学习笔记，记录一下自己的生活，写一些自己在学习过程中遇到的一些坑，还有记录一下自己的项目作品，我觉得这是一个很有趣的事，另外，个人博客在自己找工作的过程中是一个很好的加分项。 我其实也是一个小白，什么都不会，一些网页的知识都不知道，而我跟随大佬一步步搭建出了我的个人博客，故此记录一下整个过程，写一些我遇到的坑。 大佬视频：手把手教你从0开始搭建">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-07T11:37:05.000Z">
-<meta property="article:modified_time" content="2020-03-10T01:53:21.006Z">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/3.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/4.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/5.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/6.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/_1.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/_2.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/_3.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/7.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/8.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/9-1584775663698.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/10.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/11.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/12.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/13.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/14.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/16-1584779229206.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/17-1584779054502.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/18-1584779120178.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/19.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/20.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/21.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/22-1584778718446.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/23.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/24.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/__1.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/__2.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/__3.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/25.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/26.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/27.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/28.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/30.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/31.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/33.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/32.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/34.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/35.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/36.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/37.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/38.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/39.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/40.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/41.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/42.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/43.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/44.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/45.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/46.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/47.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/48.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/49.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/50.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/51.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/52.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/53.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/54.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/55.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/56.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/57.png">
+<meta property="article:published_time" content="2020-03-12T07:57:36.000Z">
+<meta property="article:modified_time" content="2020-03-22T12:38:41.358Z">
 <meta property="article:author" content="TheInkTears">
 <meta property="article:tag" content="目录">
-<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="yilia主题优化">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/2.png">
   
     <link rel="alternative" href="/atom.xml" title="TheInkTears" type="application/atom+xml">
   
@@ -156,28 +220,264 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我的第一篇文章" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-搭建hexo博客与yilia主题优化" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      我的第一篇文章
+      搭建hexo静态博客与yilia主题优化
     </h1>
   
 
         
-        <a href="/2020/03/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-03-07T11:37:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
+        <a href="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/" class="archive-article-date">
+  	<time datetime="2020-03-12T07:57:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="我的第一篇文章"><a href="#我的第一篇文章" class="headerlink" title="我的第一篇文章"></a>我的第一篇文章</h3><p>兜兜转转到了大三下半学期，浑浑噩噩的过完了大学大部分时间，自己一直告诉自己贪多嚼不烂，但好奇心使然，一直在接触自己感兴趣的方面，于是花了好多时间，什么都没学好。但好在接触了一些东西，知道了好多东西，知道自己该去认认真真学哪些，但又因自己不是科班，要学的东西太多太复杂，自己下不定决心好好去学，<strong>感兴趣的才可以学的快，有信心学下去</strong>。还有自己的自制力，要能控制好自己，一件事要有恒心，<strong>认定一件事要认认真真做下去，做下去才能有结果，才能有收获</strong>。</p>
-<p>知道剩下的时间不多了，但能多学点就多学点。不管能不能借此找到工作，自己努力了也就不会后悔。不积跬步无以致前，不积小流无以成江海，慢慢积累总会有所收获。先不管结果，<strong>直管一路风雨兼程，欣赏途中美景</strong>。那也是一种收获。</p>
+        <h1 id="一、目的"><a href="#一、目的" class="headerlink" title="一、目的"></a>一、目的</h1><p>作为一个学程序的，有个个人博客，平时写写自己的学习笔记，记录一下自己的生活，写一些自己在学习过程中遇到的一些坑，还有记录一下自己的项目作品，我觉得这是一个很有趣的事，另外，个人博客在自己找工作的过程中是一个很好的加分项。</p>
+<p>我其实也是一个小白，什么都不会，一些网页的知识都不知道，而我跟随大佬一步步搭建出了我的个人博客，故此记录一下整个过程，写一些我遇到的坑。</p>
+<p><a href="https://b23.tv/av44544186" target="_blank" rel="noopener">大佬视频：手把手教你从0开始搭建自己的个人博客</a></p>
+<h1 id="二、开始准备"><a href="#二、开始准备" class="headerlink" title="二、开始准备"></a>二、开始准备</h1><h2 id="1、Git"><a href="#1、Git" class="headerlink" title="1、Git"></a>1、Git</h2><p><strong>Git</strong> 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，之后我们会将博客部署到<strong>Github pages</strong> 中，所以一个<strong>Github</strong>的账号是必要的，还有自己电脑必须装有<strong>Git</strong>才能将博客部署上去。</p>
+<p><a href="https://git-scm.com/" target="_blank" rel="noopener">Git下载地址</a></p>
+<p><strong>Git</strong> 的安装网上有很多教程，这里就不演示了。</p>
+<p><a href="https://www.cnblogs.com/xueweisuoyong/p/11914045.html" target="_blank" rel="noopener">Windows系统Git安装教程（详解Git安装过程）</a></p>
+<p>安装成功后需要登录用户名和密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">git config --global user.name &quot;Your Name&quot;git</span><br></pre></td></tr></table></figure>
+
+<p>然后使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+
+<p>查看自己的Git账号</p>
+<h2 id="2、Node-js"><a href="#2、Node-js" class="headerlink" title="2、Node.js"></a>2、Node.js</h2><p><strong>Node.js</strong> 是一个基于 <strong>Chrome V8</strong> 引擎的 <strong>JavaScript</strong> 运行环境。我们需要<strong>Node.js</strong>来支持，生成 <strong>Hexo</strong> 。</p>
+<p><a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">Node.js 官网下载</a></p>
+<p><a href="http://nodejs.cn/" target="_blank" rel="noopener">Node.js 中文网</a></p>
+<p><strong>Node.js</strong>新版本安装很简单，一路下一步就好，可能要修改的就只有安装目录等，完了会提示你安装一下依赖项，确定就好，我因为安装的时候着急，依赖项安装了一半，没安装成功，最后找到开始菜单下的<strong>Install Additioal Tools to Node.js</strong> 才安装好的，所以安装的时候一定别着急。</p>
+<h1 id="三、部署环境"><a href="#三、部署环境" class="headerlink" title="三、部署环境"></a>三、部署环境</h1><p>准备工作做好了之后建一个你之后要存博客的文件夹 Blog ，然后在这个文件夹中鼠标右键点击打开<strong>Git Bash Here</strong> ，用<strong>Git Bash</strong> 执行之后的命令比较好。之后如果中途出了问题，或者你想重新弄一个博客可以直接将这个文件夹删了重新来一遍</p>
+<h2 id="1、安装hexo框架"><a href="#1、安装hexo框架" class="headerlink" title="1、安装hexo框架"></a>1、安装hexo框架</h2><ul>
+<li>然后使用 <strong>node -v</strong> 查看安装好的版本</li>
+</ul>
+<p>![1](./搭建hexo博客与yilia主题优化/1 (2).png)</p>
+<ul>
+<li>使用<strong>npm -v</strong>查看包管理器的版本</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/2.png" alt="2"></p>
+<ul>
+<li>因为我们需要利用 <strong>npm</strong> 包管理器安装 <strong>hexo</strong>的框架，但npm的源在国外，下载很慢，故我们使用淘宝的源，使用<code>npm install -g cnpm --registry==https://registry.npm.taobao.org</code></li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/3.png" alt="3"></p>
+<p>我的是安装过得所以很快，你们的要自己看，错了也没事，重来就行</p>
+<ul>
+<li>安装好了就用<code>cnpm -v</code>查看版本</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/4.png" alt="4"></p>
+<ul>
+<li>安装好<strong>cnpm</strong>后利用cnpm 安装 hexo <code>cnpm install -g hexo-cli</code></li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/5.png" alt="5"></p>
+<ul>
+<li>安装完可以用<code>hexo -v</code>查看版本</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/6.png" alt="6"></p>
+<h2 id="2、解决Git-Bash-中文乱码问题"><a href="#2、解决Git-Bash-中文乱码问题" class="headerlink" title="2、解决Git Bash 中文乱码问题"></a>2、解决Git Bash 中文乱码问题</h2><p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/_1.png" alt="_1"></p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/_2.png" alt="_2"></p>
+<ul>
+<li>打开设置后点击 <strong>Text</strong>，将 <strong>locale</strong> 中改为 <strong>zh_c</strong> ，将 <strong>Character set</strong> 中改为 <strong>GBK</strong></li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/_3.png" alt="_3"></p>
+<p>修改后保存，退出 <strong>Git Bash</strong>  ，重新打开就不会乱码了</p>
+<h1 id="四、初始化博客"><a href="#四、初始化博客" class="headerlink" title="四、初始化博客"></a>四、初始化博客</h1><ul>
+<li>使用<code>hexo init</code>初始化 <strong>hexo</strong> ，注意文件夹必须是空文件夹</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/7.png" alt="7"></p>
+<ul>
+<li>这里出现了一个错误 ，经过我多次查找问题，在百度上查询，最终找到原因，是因为没有<strong>node_modules</strong>文件夹，所以我们按照提示运行<code>npm install</code></li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/8.png" alt="8"></p>
+<p>直到没有错误出现</p>
+<ul>
+<li>然后就可以启动博客了，使用<code>hexo s</code>启动博客</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/9-1584775663698.png" alt="9"></p>
+<ul>
+<li>然后就可以看到博客启动成功，在本地的<strong>4000</strong>端口启动，我们可以将这个地址添加到浏览器访问，（不能用<strong>Ctrl+C</strong>，那样会停止运行）</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/10.png" alt="10"></p>
+<p>他会默认生成一个博客叫 <code>Hello World</code>，当然你完全可以直接删除 <code>Hello World</code>这篇文章。</p>
+<h1 id="五-、写博客"><a href="#五-、写博客" class="headerlink" title="五 、写博客"></a>五 、写博客</h1><h2 id="1、生成博客"><a href="#1、生成博客" class="headerlink" title="1、生成博客"></a>1、生成博客</h2><ul>
+<li>博客已经生成了，现在我们已经可以写博客了，使用<code>hexo n &quot;我的第一篇博客&quot;</code>，他就可以为我们创建一篇名叫“我的第一篇博客”的博客</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/11.png" alt="11"></p>
+<ul>
+<li>这样就已经建立了一个博客，并且他将文件路径给了我们，我们可以先使用 <code>pwd</code> 命令查看我们当前在哪个目录下</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/12.png" alt="12"></p>
+<ul>
+<li>使用<code>cd</code>命令切换到我们要编辑的文件夹，即 <code>cd source/_posts</code></li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/13.png" alt="13"></p>
+<ul>
+<li>然后查看当前文件夹的文件，使用<code>ls</code> 命令，即 <code>ls -l</code> </li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/14.png" alt="14"></p>
+<p>就可以看到我们新建的博客了，还有<strong>hexo</strong>默认帮我们建的博客，</p>
+<h2 id="2、使用-vim-编辑器编辑博客"><a href="#2、使用-vim-编辑器编辑博客" class="headerlink" title="2、使用 vim 编辑器编辑博客"></a>2、使用 vim 编辑器编辑博客</h2><ul>
+<li>然后我们就可以写博客了，用 <code>vim</code> 编辑器打开要写的博客</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/16-1584779229206.png" alt="16"></p>
+<ul>
+<li><strong>vim</strong> 编辑器刚进来是在命令模式下，我们需要按 <code>a</code>或<code>i</code> 进入编辑模式，输入将要写的内容</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/17-1584779054502.png" alt="17"></p>
+<p>注意，着这里我用了 <strong>Makedown</strong> 的方式写的</p>
+<ul>
+<li>写完后按 <code>Esc</code> 键退出到命令模式，之后输入按 <code>:</code> 进入底线命令模式，输入<code>wq</code> 按回车进行保存退出</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/18-1584779120178.png" alt="18"></p>
+<ul>
+<li>然后我们退回到原来的文件夹目录，即刚开始的 <strong>Blog</strong> 目录，<code>cd ../..</code></li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/19.png" alt="19"></p>
+<ul>
+<li>然后使用 <code>hexo clean</code> 清除一下，接着用 <code>hexo g</code> 重新生成一下</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/20.png" alt="20"></p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/21.png" alt="21"></p>
+<ul>
+<li>然后就可以重新启动博客了 ，使用<code>hexo s</code> 启动博客</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/22-1584778718446.png" alt="22"></p>
+<ul>
+<li>打开浏览器，输入<code>http://localhost:4000</code> 查看博客</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/23.png" alt="23"></p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/24.png" alt="24"></p>
+<h2 id="3、非命令行编辑博客"><a href="#3、非命令行编辑博客" class="headerlink" title="3、非命令行编辑博客"></a>3、非命令行编辑博客</h2><p>当然不会用命令行的或命令行用不惯的可以省略部分命令</p>
+<ul>
+<li><code>hexo n &quot;博客名称&quot;</code> 和<code>cd source/_posts</code> 可以在资源管理器内找到路径，右键点击新建文本文档，将文件后缀名改为 <code>.md</code>  ，加上文件名，新的博客就创建成功了</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/__1.png" alt="__1"></p>
+<ul>
+<li><code>vim 博客名称</code> 、按<code>a</code>或<code>i</code>进入插入模式、按<code>Esc</code>进入命令模式，按<code>：</code>进入底线命令模式、按<code>wq</code> 保存退出，可使用任何一款带 <strong>Makedown</strong> 的编辑器，我使用的是 <strong>Typora</strong> ，很好用，<a href="https://www.typora.io/" target="_blank" rel="noopener">Typora下载地址</a></li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/__2.png" alt="__2"></p>
+<ul>
+<li>剩下的 <code>hexo clean</code>、<code>hexo g</code>、<code>hexo s</code> 是必须要记住的</li>
+</ul>
+<h2 id="4、vim编辑器中文乱码问题"><a href="#4、vim编辑器中文乱码问题" class="headerlink" title="4、vim编辑器中文乱码问题"></a>4、vim编辑器中文乱码问题</h2><p>找到 <strong>Git</strong> 的安装目录，比如说我的在<code>D:\Program Files\Git</code> 中，在这个文件夹中进入<code>etc</code>目录中，用文本编辑器打开 <code>vimrc</code>  文件，在里面添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set fencs&#x3D;utf-8,gbk,utf-16,utf-32,ucs-bom &quot;编码配置</span><br><span class="line">set nu									  &quot;vim行号显示</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/__3.png" alt="__3"></p>
+<p>修改完成后退出 <strong>Git Bash</strong> ，重新打开之后再使用 vim 编辑器时就不会乱码了</p>
+<h1 id="六、把博客部署到远端"><a href="#六、把博客部署到远端" class="headerlink" title="六、把博客部署到远端"></a>六、把博客部署到远端</h1><p>现在已经可以写博客了，但是这样只能在本地查看，所以我们需要将博客部署到远端，这里我们使用 <strong>GitHub ** ，将我们的博客部署到</strong>GitHub**中，实现远程访问</p>
+<h2 id="1、创建仓库"><a href="#1、创建仓库" class="headerlink" title="1、创建仓库"></a>1、创建仓库</h2><ul>
+<li>首先我们需要一个 <strong>GitHub</strong>  的账号，可以在<a href="https://github.com" target="_blank" rel="noopener">GitHub</a>中注册</li>
+<li>然后我们新建一个仓库</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/25.png" alt="25"></p>
+<ul>
+<li>博客名称必须以你  <strong>GitHub</strong> 账号的昵称构成，比如说我的 <strong>GitHub</strong> 账号昵称为<code>thelnktears</code> ，则这个仓库的名称为<code>thelnktears.github.io</code> 描述随便写</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/26.png" alt="26"></p>
+<p>我这已经创建过了，所以就出错了，然后就创建</p>
+<h2 id="2、安装插件"><a href="#2、安装插件" class="headerlink" title="2、安装插件"></a>2、安装插件</h2><ul>
+<li>之后回到我们电脑上创建的<strong>Blog</strong> 文件夹下，安装一个<strong>git</strong> 的部署插件，使用<code>cnpm install --save hexo-deployer-git</code> 安装</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/27.png" alt="27"></p>
+<h2 id="3、设置上传"><a href="#3、设置上传" class="headerlink" title="3、设置上传"></a>3、设置上传</h2><ul>
+<li>然后修改 <strong>Blog</strong> 文件夹下的 <strong>_config.yml</strong> 这个文件，使用<strong>vim</strong> 编辑器打开 <code>vim _config</code></li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/28.png" alt="28"></p>
+<ul>
+<li>按<code>a</code>或<code>i</code> 进入插入模式，找到 <strong>Deployment</strong> 在下面添加如下内容，按<code>esc</code> 退出插入模式，按<code>:</code> 进入底线命令模式，输入<code>wq</code>保存退出<ul>
+<li><strong>type: git</strong></li>
+<li><strong>repo: 新建仓库的HTTPS的地址</strong></li>
+<li><strong>branch: master</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;thelnktears&#x2F;thelnktears.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>新建仓库的地址可以在建完仓库后跳转的页面中得到，如果退出去了则可以在克隆仓库的地址中找到</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/30.png" alt="30"></p>
+<h2 id="4、上传博客"><a href="#4、上传博客" class="headerlink" title="4、上传博客"></a>4、上传博客</h2><ul>
+<li>退出后使用 <code>hexo d</code> 把博客部署到远端，在浏览器中输入<code>https://thelnktears.github.io/</code> ，也就是你新建仓库的地址，有时<strong>GitHub</strong> 网比较慢，所以稍微等待</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/31.png" alt="31"></p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/33.png" alt="33"></p>
+<ul>
+<li>部署成功后</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/32.png" alt="32"></p>
+<p><strong>注意，如果你的 GitHub 昵称里有大写，建议你重新修改一下名字，不要有大写，因为大写的话浏览器会改为小写，从而无法访问到正确的地址</strong></p>
+<h1 id="七、给个人博客换主题"><a href="#七、给个人博客换主题" class="headerlink" title="七、给个人博客换主题"></a>七、给个人博客换主题</h1><p>现在博客的主题是默认带的，不好看，所以我们需要对其进行修改</p>
+<h2 id="1、下载主题"><a href="#1、下载主题" class="headerlink" title="1、下载主题"></a>1、下载主题</h2><p>这里我们使用 <code>yilia</code>这个主题，写的很好，很多人用</p>
+<p>使用<code>git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</code> 克隆下载 <code>yilia</code> 这个主题</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/34.png" alt="34"></p>
+<h2 id="2、修改主题"><a href="#2、修改主题" class="headerlink" title="2、修改主题"></a>2、修改主题</h2><p>下载完成后需要将主题应用到我们的博客里面，设置主题我们需要修改<code>Blog</code> 目录下的 <code>_config.yml</code> 这个文件</p>
+<p>使用命令 <code>vim _config.yml</code> 打开文件</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/35.png" alt="35"></p>
+<p>找到 <code>theme</code> 这行，默认为 <code>landscape</code> ，修改为我们想要替换的主题</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/36.png" alt="36"></p>
+<p>修改过后</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/37.png" alt="37"></p>
+<p>这样我们的主题就换过来了，我们启动一下看看，使用 <code>hexo clean</code> 、<code>hexo g</code> 、<code>hexo s</code> 在本地启动</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/38.png" alt="38"></p>
+<h1 id="八、博客主题优化"><a href="#八、博客主题优化" class="headerlink" title="八、博客主题优化"></a>八、博客主题优化</h1><p>此时，我们的博客已经换好主题了，但是不是我们想要的样子，所以对这个主题还要进行修改，换成我们想要的样子</p>
+<h2 id="1、网站名称"><a href="#1、网站名称" class="headerlink" title="1、网站名称"></a>1、网站名称</h2><ul>
+<li>打开 <strong>Bolg</strong> 目录下的 <code>_config.yml</code> 文件，修改名称，即 <code>title</code>后的名称，修改为你想要的名称</li>
+</ul>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/39.png" alt="39"></p>
+<h2 id="2、副标题"><a href="#2、副标题" class="headerlink" title="2、副标题"></a>2、副标题</h2><p>即 <code>subtitle</code> 后的名称，可以放些你喜欢的句子</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/40.png" alt="40"></p>
+<h2 id="3、作者名称以及语言"><a href="#3、作者名称以及语言" class="headerlink" title="3、作者名称以及语言"></a>3、作者名称以及语言</h2><p><code>author</code> 以及language</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/41.png" alt="41"></p>
+<p>修改完成后</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/42.png" alt="42"></p>
+<h2 id="4、修改头像"><a href="#4、修改头像" class="headerlink" title="4、修改头像"></a>4、修改头像</h2><p>发现头像还没改过来，至于头像，我们需要到下载的主题的目录中修改而在下载时，将<code>yilia</code> 的主题下载到了 <code>themes/yilia</code> 这个目录下，所以我们打开这个目录，找到里面的 <code>_config.yml</code> 的文件，即 <code>themes/yilia/_config.yml</code> ，打开这个文件</p>
+<p>找到如下行，添加你的头像，将你的头像图片放到 <code>yilia</code> 目录下的 <code>source</code> 中的 <code>img</code> 文件夹下，即<code>Blog\themes\yilia\source\img</code> ，并且将 <code>_config.yml</code>文件的如下行修改，在 <strong>avatar:</strong> 后面添加 路径 <code>/img/avatar.jpg</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#你的头像url</span><br><span class="line">avatar:</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/43.png" alt="43"></p>
+<h2 id="5、修改网站图标"><a href="#5、修改网站图标" class="headerlink" title="5、修改网站图标"></a>5、修改网站图标</h2><p>将你的图标放到 <code>yilia</code> 目录下的 <code>source</code> 中的 <code>img</code> 文件夹下，即<code>Blog\themes\yilia\source\img</code> ，并且将 <code>_config.yml</code>文件的如下行修改，在 <strong>favicon:</strong> 后面添加 路径 <code>/img/avatar.jpg</code></p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/44.png" alt="44"></p>
+<h2 id="6、修改连接"><a href="#6、修改连接" class="headerlink" title="6、修改连接"></a>6、修改连接</h2><p><code>yilia</code>  的主题帮我们打开了 <code>Github</code> 、微博、知乎等的链接，我不需要这么多，或者这些我用不到，那就修改掉，我想要的有<code>Github</code> 、<code>QQ</code>、微信，<code>QQ</code> 、微信我使用添加好友的二维码代替了</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/45.png" alt="45"></p>
+<p>此时就会被修改为如下情况</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/46.png" alt="46"></p>
+<p>目前看似差不多了，但是我们点击所有文章、友链、关于我时发现好像还是不对，那接着修改</p>
+<h2 id="7、所有文章"><a href="#7、所有文章" class="headerlink" title="7、所有文章"></a>7、所有文章</h2><p>点击所有文章会弹出如下情况，按照提示，进行修改</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/47.png" alt="47"></p>
+<p>输入 <code>cnpm i hexo-generator-json-content --save</code></p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/48.png" alt="48"></p>
+<p>打开 <code>Blog</code> 文件夹下的 <code>_config.yml</code>  文件，添加如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">jsonContent:</span><br><span class="line">    meta: false</span><br><span class="line">    pages: false</span><br><span class="line">    posts:</span><br><span class="line">      title: true</span><br><span class="line">      date: true</span><br><span class="line">      path: true</span><br><span class="line">      text: false</span><br><span class="line">      raw: false</span><br><span class="line">      content: false</span><br><span class="line">      slug: false</span><br><span class="line">      updated: false</span><br><span class="line">      comments: false</span><br><span class="line">      link: false</span><br><span class="line">      permalink: false</span><br><span class="line">      excerpt: false</span><br><span class="line">      categories: false</span><br><span class="line">      tags: true</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/49.png" alt="49"></p>
+<p>然后所有文章就改过来了，</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/50.png" alt="50"></p>
+<h2 id="8、友链"><a href="#8、友链" class="headerlink" title="8、友链"></a>8、友链</h2><p>添加友链，帮忙推广一些技术大佬，添加大佬们的网站、博客地址，同时添加友链也能增加自己博客的访问，打开 <code>yilia</code> 文件夹下的 <code>_config.yml</code> 文件，进行修改</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/51.png" alt="51"></p>
+<h2 id="9、关于我"><a href="#9、关于我" class="headerlink" title="9、关于我"></a>9、关于我</h2><p>添加一些关于自己的话 </p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/52.png" alt="52"></p>
+<h2 id="10、打赏"><a href="#10、打赏" class="headerlink" title="10、打赏"></a>10、打赏</h2><p>现在打开博客文章后，翻到后面会有一个打赏的功能，将其运用起来，如同加载头像、QQ、微信等的链接的方式，添加微信或支付宝的收款码</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/53.png" alt="53"></p>
+<h2 id="11、目录"><a href="#11、目录" class="headerlink" title="11、目录"></a>11、目录</h2><p>现在博客已经可以了，但是我们点击随笔时会出错，经过查询，我知道了，这是一个标签，通过写的文章的标签添加到这个链接里（我的理解，大佬勿喷），而博客的随笔可能不多，相同这个后，我觉得应该为博客添加一个目录，以后文章多了找起来方便，写文章时添加一个名叫目录的标签，以此达到为博客添加目录的目的，简单易行。</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/54.png" alt="54"></p>
+<p>之后每次写文章，在 <strong>tags</strong> 后面都添加一个目录的标签，就实现了目录的功能，注意每个标签后面都有一个空格，这是人家规定的，必须这样写，否则会出错</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/55.png" alt="55"></p>
+<p>修改完启动博客，点击目录就会发现可以跳转到类似于目录的页面</p>
+<p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/56.png" alt="56"></p>
+<hr>
+<p>然后使用 <code>hexo d</code> 把博客部署到远端，在浏览器中输入<code>https://thelnktears.github.io/</code> ，也就是你新建仓库的地址，有时<strong>GitHub</strong> 网比较慢，所以稍微等待，然后你就会发现，博客被部署到远端了，之后你就可以将这个网址告诉别人，说这是你的博客网站</p>
+<hr>
+<h1 id="九、我们的博客"><a href="#九、我们的博客" class="headerlink" title="九、我们的博客"></a>九、我们的博客</h1><p><img src="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/57.png" alt="57"></p>
+<p>博客搭建好了，我没有添加评论等功能，因为十分麻烦，效果也不明显，就放弃了，现在的功能我已经满意了，剩下的就是多写博客，为博客添加内容。其实除了一些必要的明亮，搭建博客还是很容易的，毕竟别人帮我们写了很多内容，我们只是使用者。我的博客就这样了，我很满意，如果各位有不满意的可以在网上查找相关内容，修改<code>_config.yml</code> 文件，所有设置都是通过这个文件实现。</p>
 
       
 
@@ -226,7 +526,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">yilia主题优化</a>
         		</li>
       		
 		</ul>
@@ -282,7 +594,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,15 +608,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/03/12/%E5%9F%BA%E4%BA%8ESTC89C52RC%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%A8%E9%94%81/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          搭建hexo静态博客与yilia主题优化
+          基于STC89C52RC单片机的密码门锁
         
       </div>
     </a>
   
+  
+    <a href="/2020/03/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的第一篇文章</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
