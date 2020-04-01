@@ -152,6 +152,111 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python爬虫下载恩智浦智能车竞赛技术报告" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/01/python%E7%88%AC%E8%99%AB%E4%B8%8B%E8%BD%BD%E6%81%A9%E6%99%BA%E6%B5%A6%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B%E6%8A%80%E6%9C%AF%E6%8A%A5%E5%91%8A/">python爬虫下载恩智浦智能车竞赛技术报告</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/01/python%E7%88%AC%E8%99%AB%E4%B8%8B%E8%BD%BD%E6%81%A9%E6%99%BA%E6%B5%A6%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B%E6%8A%80%E6%9C%AF%E6%8A%A5%E5%91%8A/" class="archive-article-date">
+  	<time datetime="2020-04-01T05:12:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、目标"><a href="#一、目标" class="headerlink" title="一、目标"></a>一、目标</h1><p>新一届的全国大学生智能汽车竞赛开始了，想下载官网上的技术报告，看看大佬们在坐车时候的想法 ，然而官网的技术报告有点多，而且还没打包，得一个一个慢慢点击下载，下载速率太慢了，这不刚学了一下python爬虫吗，就想试试能不能使用python爬虫下载智能车竞赛官网的技术报告。<br><a href="https://editor.csdn.net/md/?articleId=105045725" target="_blank" rel="noopener"><strong>python</strong> 爬虫学习</a>参见我的这篇文章<br><a href="https://thelnktears.github.io/2020/03/13/Python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0/" target="_blank" rel="noopener">另外我的博客上也有上传</a></p>
+<h1 id="二、目标分析"><a href="#二、目标分析" class="headerlink" title="二、目标分析"></a>二、目标分析</h1><h2 id="1、技术报告的URL链接"><a href="#1、技术报告的URL链接" class="headerlink" title="1、技术报告的URL链接"></a>1、技术报告的URL链接</h2><p>打开官网，找到下载技术报告的页面，因为参赛的队伍比较多，优秀的队伍的技术报告也就多，所以官网将技术报告分到好几个页面中，点击一个选项组，<strong>2019-10-23   第十四届竞赛技术报告(6)</strong> 先找到一个要下载的技术报告，发现点击后就会下载，选中这个技术报告的名字，右键点击检查，查看网页代码，发现技术报告的下载地址就是 <code>&lt;a&gt;...&lt;/a&gt;</code> 标签内 <strong>href</strong> 后面的链接，这样我们就找到了技术报告的链接地址了，但是一个页面中有那么多技术报告，不能一个一个填啊，所以我们就需要遍历查找这些 <code>&lt;a&gt;...&lt;/a&gt;</code> 标签，从他的 <strong>href</strong> 属性中获得链接地址。<br><img src="https://img-blog.csdnimg.cn/20200401151155177.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjU4NTMxNg==,size_16,color_FFFFFF,t_70#pic_center" alt="4"></p>
+<h2 id="2、下载页面的URL"><a href="#2、下载页面的URL" class="headerlink" title="2、下载页面的URL"></a>2、下载页面的URL</h2><p>反过头查看下载页面的 <strong>URL</strong> 连接，发现这不就是竞赛官网的资料下载页面的 <strong>URL</strong> 吗？这咋和下载页面的 <strong>URL</strong> 一样？怎么网页地址没有变。得看一下到底指什么情况，检查一下网页代码，分析情况。<br><img src="https://img-blog.csdnimg.cn/20200401144612701.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjU4NTMxNg==,size_16,color_FFFFFF,t_70#pic_center" alt="1"><br>找到要下载的页面选项，将其选中，比如： <strong>2019-10-23   第十四届竞赛技术报告(5)</strong> 选中后右键点击检查，查看源码。<br><img src="https://img-blog.csdnimg.cn/20200401165104993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjU4NTMxNg==,size_16,color_FFFFFF,t_70#pic_center" alt="3"><br>发现这是 <strong>JavaScript</strong> 写的，<strong>void(0)</strong> 是一个点击不发生任何效果，停留在原地，称之为“死链接”，而我们想要的资源列表是在点击这段文字后出现的，那我们怎么的到还有技术报告的页面链接呢？这不是点击后跳转的吗，那就模拟人上网，用鼠标点击这个标签他不就过来了吗？然后经过查找，得出这个页面的连接放在 <code>&lt;iframe&gt;...&lt;/iframe&gt;</code> 这么一个标签的 <strong>src</strong> 属性中。同样的方法测试别的下载页面都是一样的，所以下载页面的 <strong>URL</strong> 地址也就找到了。</p>
+<h1 id="三、开始写代码"><a href="#三、开始写代码" class="headerlink" title="三、开始写代码"></a>三、开始写代码</h1><h2 id="1、获取下载页面的URL"><a href="#1、获取下载页面的URL" class="headerlink" title="1、获取下载页面的URL"></a>1、获取下载页面的URL</h2><p>前面分析我们知道，下载页面是 <strong>JavaScript:void(0)</strong> 实现的一个死链接，真正的连接在点击资料下载页面相应的文字后加载到新的资源页面后，在一个 <code>&lt;iframe&gt;...&lt;/iframe&gt;</code> 标签的 <strong>src</strong> 属性里。我们要获得真正的下载页面的 <strong>URL</strong> 地址需要模拟鼠标点击，所以我们使用 <strong>selenium</strong> 模块中的 <strong>webdriver</strong>，所以先将模块导入。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br></pre></td></tr></table></figure>
+
+<p>接下来就快开始构建一个浏览器对象，使用无头浏览器模拟点击各个标签获取到下载页面的地址先保存起来。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">geturl</span><span class="params">(begainurl, href)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从主页开始，遍历我们想要的页面，获得页面地址</span></span><br><span class="line"><span class="string">    :param begainurl: 主页的url连接</span></span><br><span class="line"><span class="string">    :param href: 每个子页面的连接</span></span><br><span class="line"><span class="string">    :return: None</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    options = webdriver.ChromeOptions()  <span class="comment"># 实例化Chrome浏览器的设置</span></span><br><span class="line">    options.add_argument(<span class="string">"--headless"</span>)</span><br><span class="line">    options.add_argument(<span class="string">"--disable-gpu"</span>)</span><br><span class="line">    driver = webdriver.Chrome(options=options)  <span class="comment"># 实例化Chrome浏览器</span></span><br><span class="line">    driver.get(begainurl)  <span class="comment"># 从主页开始</span></span><br><span class="line">    <span class="comment"># 以下使我们要点击的标签的 xpath ，发现只有 li 标签后缀再改</span></span><br><span class="line">    <span class="comment"># "/html/body/div[4]/div[3]/div[1]/ul/li[7]/a/span[1]"</span></span><br><span class="line">    <span class="comment"># "/html/body/div[4]/div[3]/div[1]/ul/li[6]/a/span[1]"</span></span><br><span class="line">    <span class="comment"># "/html/body/div[4]/div[3]/div[1]/ul/li[5]/a/span[1]"</span></span><br><span class="line">    <span class="comment"># "/html/body/div[4]/div[3]/div[1]/ul/li[4]/a/span[1]"</span></span><br><span class="line">    <span class="comment"># "/html/body/div[4]/div[3]/div[1]/ul/li[4]/a/span[1]"</span></span><br><span class="line">    <span class="comment"># "/html/body/div[4]/div[3]/div[1]/ul/li[2]/a/span[1]"</span></span><br><span class="line">    <span class="comment"># "/html/body/div[4]/div[3]/div[1]/ul/li[1]/a/span[1]"</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">7</span>):</span><br><span class="line">        xpath = <span class="string">"/html/body/div[4]/div[3]/div[1]/ul/li["</span> + str(i) + <span class="string">"]/a/span[1]"</span>  <span class="comment"># 构造xpath</span></span><br><span class="line">        <span class="comment"># print(xpath)</span></span><br><span class="line">        href1 = driver.find_element_by_xpath(xpath).click()  <span class="comment"># 寻找对应的元素并且点击进入下一个页面</span></span><br><span class="line">        soup = bs4.BeautifulSoup(driver.page_source, <span class="string">"html.parser"</span>)  <span class="comment"># 解析页面代码文件</span></span><br><span class="line">        url = soup.iframe.attrs[<span class="string">"src"</span>]  <span class="comment"># 获取想要的连接地址</span></span><br><span class="line">        print(url)</span><br><span class="line">        href.append(url)  <span class="comment"># 将地址添加到列表当中</span></span><br><span class="line">        time.sleep(<span class="number">2</span>)  <span class="comment"># 等待页面加载完毕</span></span><br><span class="line">        driver.get(begainurl)  <span class="comment"># 从主页开始</span></span><br><span class="line">        time.sleep(<span class="number">2</span>)</span><br><span class="line">    time.sleep(<span class="number">2</span>)</span><br><span class="line">    driver.close()  <span class="comment"># 关闭浏览器页面</span></span><br><span class="line">    driver.quit()</span><br><span class="line">    <span class="comment"># print(href)                                                         # 打印获取到的连接列表</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2、获取技术报告的URL"><a href="#2、获取技术报告的URL" class="headerlink" title="2、获取技术报告的URL"></a>2、获取技术报告的URL</h2><p>得到每个下载页面的 <strong>URL</strong> 后我们需要从每个下载页面得到技术报告的 <strong>URL</strong> 链接，这些链接才是我们真正下载时候需要的页面，通过前面分析，技术报告的 <strong>URL</strong> 链接在 <code>&lt;a&gt;...&lt;/a&gt;</code> 标签的 <strong>href</strong> 属性中。遍历我们保存的下载页面的 <strong>URL</strong> ，访问这些 <strong>URL</strong> 获取到每个页面的网页代码，从中在遍历查找 <code>&lt;a&gt;...&lt;/a&gt;</code> 标签，获取到技术报告的 <strong>URL</strong> 。<br>遍历下载页面的 <strong>URL</strong> ，获得每一页的网页源代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(href, html)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从每一页的连接中获取每一页的HTML代码</span></span><br><span class="line"><span class="string">    :param href: 每一页的连接地址，用列表表示</span></span><br><span class="line"><span class="string">    :param html: 每一页的HTML代码，用列表表示</span></span><br><span class="line"><span class="string">    :return: None</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> connection <span class="keyword">in</span> href:  <span class="comment"># 遍历每一页的连接地址</span></span><br><span class="line">            print(</span><br><span class="line">                <span class="string">"............................................................................................................."</span>)</span><br><span class="line">            print(<span class="string">"开始解析"</span>)</span><br><span class="line">            print(connection)  <span class="comment"># 打印将要解析的连接地址</span></span><br><span class="line">            files = requests.get(connection)  <span class="comment"># 爬取每个页面的HTML地址</span></span><br><span class="line">            <span class="comment"># print(files.status_code)</span></span><br><span class="line">            files.raise_for_status()  <span class="comment"># 检查返回状态，200 为连接正常，否则产生异常</span></span><br><span class="line">            files.encoding = files.apparent_encoding</span><br><span class="line">            <span class="comment"># print(files.text)</span></span><br><span class="line">            soup = bs4.BeautifulSoup(files.text, <span class="string">'html.parser'</span>)  <span class="comment"># 解析页面文件</span></span><br><span class="line">            html.append(soup)  <span class="comment"># 将每页的HTML源码文件添加到html的列表中</span></span><br><span class="line">            i = i + <span class="number">1</span></span><br><span class="line">            <span class="comment"># print(soup.prettify())</span></span><br><span class="line">            <span class="comment"># print(html)</span></span><br><span class="line">        print(<span class="string">"............................................................................................................."</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">"异常"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>遍历获得到的网页源代码，从 <code>&lt;a&gt;...&lt;/a&gt;</code> 标签获取到技术报告的 <strong>URL</strong> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHref</span><span class="params">(html, url)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从每页的HTML源码文件中获得资源文件的名称和连接</span></span><br><span class="line"><span class="string">    :param html: 每页的HTML代码</span></span><br><span class="line"><span class="string">    :param url: 每一个资源文件的地址和名称，用字典保存</span></span><br><span class="line"><span class="string">    :return: None</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment"># print(html.a.attrs)</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> html:  <span class="comment"># 遍历每一资源页</span></span><br><span class="line">        <span class="keyword">for</span> link <span class="keyword">in</span> i.find_all(<span class="string">"a"</span>):  <span class="comment"># 查找资源页的资源地址</span></span><br><span class="line">            <span class="comment"># print(link.string)</span></span><br><span class="line">            <span class="comment"># print(link.get("href"))</span></span><br><span class="line">            hrefstring = str(link.string).strip()  <span class="comment"># 去掉资源名称中的空格\r\t等字符</span></span><br><span class="line">            hrefURL = str(link.get(<span class="string">"href"</span>)).strip()  <span class="comment"># 去掉资源地址中的空格\r\t等字符</span></span><br><span class="line">            <span class="comment"># href.update(link.string , link.get("href"))</span></span><br><span class="line">            <span class="comment"># print(href[link.string])</span></span><br><span class="line">            url[hrefstring] = hrefURL  <span class="comment"># 将资源保存到列表中</span></span><br><span class="line">    <span class="comment"># print(url)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3、筛选得到的URL"><a href="#3、筛选得到的URL" class="headerlink" title="3、筛选得到的URL"></a>3、筛选得到的URL</h2><p>参看每个下载页面的内容发现，其实每个下载页面的内容挺乱的，出了要下载的技术报告外，里面还有像车模检查表、参赛证明、车模照片、电路图等，特别乱，像车模检查表这些我们都不需要，所以我们得将其筛选出去</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hrefNmae</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    筛选资源名称和链接，通过筛选资源名称，得到我们想要的资源</span></span><br><span class="line"><span class="string">    :param url: 每个资源的名称与连接的字典</span></span><br><span class="line"><span class="string">    :return: None</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> list(url.keys()):  <span class="comment"># 遍历存资源链接和名称的字典</span></span><br><span class="line">        <span class="comment"># print(name)</span></span><br><span class="line">        <span class="comment"># 筛选我们想要的资源</span></span><br><span class="line">        <span class="keyword">if</span> (name.find(<span class="string">"检查表"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">".jpg"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">".png"</span>) &gt;= <span class="number">0</span>) \</span><br><span class="line">                <span class="keyword">or</span> (name.find(<span class="string">".JPEG"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">"照片"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">"承诺书"</span>) &gt;= <span class="number">0</span>) \</span><br><span class="line">                <span class="keyword">or</span> (name.find(<span class="string">".xlsx"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">"回执"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">"表"</span>) &gt;= <span class="number">0</span>) \</span><br><span class="line">                <span class="keyword">or</span> (name.find(<span class="string">"参赛证明"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">"图片"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">".JPG"</span>) &gt;= <span class="number">0</span>) \</span><br><span class="line">                <span class="keyword">or</span> (name.find(<span class="string">".PNG"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">".jpeg"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">".bmp"</span>) &gt;= <span class="number">0</span>):</span><br><span class="line">            <span class="keyword">del</span> (url[name])  <span class="comment"># 删除我们不想要的资源</span></span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># print(name)</span></span><br><span class="line">            i = i + <span class="number">1</span></span><br><span class="line">    print(i)  <span class="comment"># 打印我们想要的资源的数量</span></span><br></pre></td></tr></table></figure>
+
+<p>筛选过后差不多就是我们想要的了，不包括玩我的筛选问题，将一部分技术报告筛选出去的，因为太多我也没法查看，另外还有些文件名称命名比较模糊的，不知道是技术报告还是其他的什么东西的我没有进行排除，你们也可以自己尝试，因为正则表达式我感觉有点麻烦，所以我就通过保存的链接的字典中键值对进行了筛选，可能误差比较大。</p>
+<h2 id="4、获得技术报告"><a href="#4、获得技术报告" class="headerlink" title="4、获得技术报告"></a>4、获得技术报告</h2><p>得到我们想要的技术报告的 <strong>URL</strong> 连接后我们就需要将其下载下来进行保存，这里我新建了一个文件夹，将其保存在里面。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getfiles</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从我们的到的资源链接中获取到文件，并且保存到本地的技术报告文件夹</span></span><br><span class="line"><span class="string">    :param url: 获取到的资源文件的连接和名称的字典</span></span><br><span class="line"><span class="string">    :return: None</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    path = os.getcwd() + <span class="string">r"\技术报告"</span>  <span class="comment"># 获取到目前文件夹路径，构造要保存的文件夹路径</span></span><br><span class="line">    <span class="comment"># 判断是否存在文件夹，没有的话建立文件夹</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.isdir(path):  <span class="comment"># 判断是否有这么个路径，没有的话就开始创建</span></span><br><span class="line">        os.mkdir(path)  <span class="comment"># 创建文件夹</span></span><br><span class="line">        os.chdir(path)  <span class="comment"># 将工作路径切换到将要下载到的文件夹</span></span><br><span class="line">        print(os.getcwd())</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        os.chdir(path)  <span class="comment"># 将工作路径切换到将要下载到的文件夹</span></span><br><span class="line">        print(os.getcwd())</span><br><span class="line">        i = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> filesvalue <span class="keyword">in</span> url.keys():  <span class="comment"># 遍历资源链接的字典</span></span><br><span class="line">            <span class="comment"># filesname = os.path.splitext(filesvalue)[0]  # 从资源的字典中获得文件名称</span></span><br><span class="line">            <span class="comment"># filesdriname = os.path.splitext(filesvalue)[1]</span></span><br><span class="line">            <span class="comment"># filesName = filesname+filesdriname</span></span><br><span class="line">            print(<span class="string">"开始下载"</span> + filesvalue)</span><br><span class="line">            files = open(filesvalue, mode=<span class="string">"wb"</span>)  <span class="comment"># 创建文件</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                f = requests.get(url.get(filesvalue))  <span class="comment"># 获得文件</span></span><br><span class="line">                f.raise_for_status()</span><br><span class="line">                f.encoding = f.apparent_encoding</span><br><span class="line">                files.write(f.content)  <span class="comment"># 写入文件</span></span><br><span class="line">                files.close()  <span class="comment"># 关闭文件</span></span><br><span class="line">                print(<span class="string">"下载完成............................................."</span>+ str(i))</span><br><span class="line">                i = i + <span class="number">1</span></span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                print(<span class="string">"下载失败"</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="5、开始下载"><a href="#5、开始下载" class="headerlink" title="5、开始下载"></a>5、开始下载</h2><p><img src="https://img-blog.csdnimg.cn/20200401162713226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjU4NTMxNg==,size_16,color_FFFFFF,t_70#pic_center" alt="5"><br>这样就开始下载了，下载的时候会在 <strong>python</strong> 文件所在目录新建一个 <strong>技术报告</strong> 的文件夹，下载的技术报告就会保存的那，另外中间我也尝试用多线程去跑，但我添加上之后出现问题，没法运行也就放弃了，大家可以自己尝试一下</p>
+<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>第一次使用爬虫下载自己想要的东西，很开心，虽然中间遇到了很多困难，但都一一解决了，唯一没有解决的是多线程问题，接下来会好好研究一下，争取攻破。</p>
+<h1 id="五、完整代码"><a href="#五、完整代码" class="headerlink" title="五、完整代码"></a>五、完整代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(href, html)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从每一页的连接中获取每一页的HTML代码</span></span><br><span class="line"><span class="string">    :param href: 每一页的连接地址，用列表表示</span></span><br><span class="line"><span class="string">    :param html: 每一页的HTML代码，用列表表示</span></span><br><span class="line"><span class="string">    :return: None</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> connection <span class="keyword">in</span> href:  <span class="comment"># 遍历每一页的连接地址</span></span><br><span class="line">            print(</span><br><span class="line">                <span class="string">"............................................................................................................."</span>)</span><br><span class="line">            print(<span class="string">"开始解析"</span>)</span><br><span class="line">            print(connection)  <span class="comment"># 打印将要解析的连接地址</span></span><br><span class="line">            files = requests.get(connection)  <span class="comment"># 爬取每个页面的HTML地址</span></span><br><span class="line">            <span class="comment"># print(files.status_code)</span></span><br><span class="line">            files.raise_for_status()  <span class="comment"># 检查返回状态，200 为连接正常，否则产生异常</span></span><br><span class="line">            files.encoding = files.apparent_encoding</span><br><span class="line">            <span class="comment"># print(files.text)</span></span><br><span class="line">            soup = bs4.BeautifulSoup(files.text, <span class="string">'html.parser'</span>)  <span class="comment"># 解析页面文件</span></span><br><span class="line">            html.append(soup)  <span class="comment"># 将每页的HTML源码文件添加到html的列表中</span></span><br><span class="line">            i = i + <span class="number">1</span></span><br><span class="line">            <span class="comment"># print(soup.prettify())</span></span><br><span class="line">            <span class="comment"># print(html)</span></span><br><span class="line">        print(<span class="string">"............................................................................................................."</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">"异常"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHref</span><span class="params">(html, url)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从每页的HTML源码文件中获得资源文件的名称和连接</span></span><br><span class="line"><span class="string">    :param html: 每页的HTML代码</span></span><br><span class="line"><span class="string">    :param url: 每一个资源文件的地址和名称，用字典保存</span></span><br><span class="line"><span class="string">    :return: None</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment"># print(html.a.attrs)</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> html:  <span class="comment"># 遍历每一资源页</span></span><br><span class="line">        <span class="keyword">for</span> link <span class="keyword">in</span> i.find_all(<span class="string">"a"</span>):  <span class="comment"># 查找资源页的资源地址</span></span><br><span class="line">            <span class="comment"># print(link.string)</span></span><br><span class="line">            <span class="comment"># print(link.get("href"))</span></span><br><span class="line">            hrefstring = str(link.string).strip()  <span class="comment"># 去掉资源名称中的空格\r\t等字符</span></span><br><span class="line">            hrefURL = str(link.get(<span class="string">"href"</span>)).strip()  <span class="comment"># 去掉资源地址中的空格\r\t等字符</span></span><br><span class="line">            <span class="comment"># href.update(link.string , link.get("href"))</span></span><br><span class="line">            <span class="comment"># print(href[link.string])</span></span><br><span class="line">            url[hrefstring] = hrefURL  <span class="comment"># 将资源保存到列表中</span></span><br><span class="line">    <span class="comment"># print(url)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getfiles</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从我们的到的资源链接中获取到文件，并且保存到本地的技术报告文件夹</span></span><br><span class="line"><span class="string">    :param url: 获取到的资源文件的连接和名称的字典</span></span><br><span class="line"><span class="string">    :return: None</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    path = os.getcwd() + <span class="string">r"\技术报告"</span>  <span class="comment"># 获取到目前文件夹路径，构造要保存的文件夹路径</span></span><br><span class="line">    <span class="comment"># 判断是否存在文件夹，没有的话建立文件夹</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.isdir(path):  <span class="comment"># 判断是否有这么个路径，没有的话就开始创建</span></span><br><span class="line">        os.mkdir(path)  <span class="comment"># 创建文件夹</span></span><br><span class="line">        os.chdir(path)  <span class="comment"># 将工作路径切换到将要下载到的文件夹</span></span><br><span class="line">        print(os.getcwd())</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        os.chdir(path)  <span class="comment"># 将工作路径切换到将要下载到的文件夹</span></span><br><span class="line">        print(os.getcwd())</span><br><span class="line">        i = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> filesvalue <span class="keyword">in</span> url.keys():  <span class="comment"># 遍历资源链接的字典</span></span><br><span class="line">            <span class="comment"># filesname = os.path.splitext(filesvalue)[0]  # 从资源的字典中获得文件名称</span></span><br><span class="line">            <span class="comment"># filesdriname = os.path.splitext(filesvalue)[1]</span></span><br><span class="line">            <span class="comment"># filesName = filesname+filesdriname</span></span><br><span class="line">            print(<span class="string">"开始下载"</span> + filesvalue)</span><br><span class="line">            files = open(filesvalue, mode=<span class="string">"wb"</span>)  <span class="comment"># 创建文件</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                f = requests.get(url.get(filesvalue))  <span class="comment"># 获得文件</span></span><br><span class="line">                f.raise_for_status()</span><br><span class="line">                f.encoding = f.apparent_encoding</span><br><span class="line">                files.write(f.content)  <span class="comment"># 写入文件</span></span><br><span class="line">                files.close()  <span class="comment"># 关闭文件</span></span><br><span class="line">                print(<span class="string">"下载完成............................................."</span>+ str(i))</span><br><span class="line">                i = i + <span class="number">1</span></span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                print(<span class="string">"下载失败"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hrefNmae</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    筛选资源名称和链接，通过筛选资源名称，得到我们想要的资源</span></span><br><span class="line"><span class="string">    :param url: 每个资源的名称与连接的字典</span></span><br><span class="line"><span class="string">    :return: None</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> list(url.keys()):  <span class="comment"># 遍历存资源链接和名称的字典</span></span><br><span class="line">        <span class="comment"># print(name)</span></span><br><span class="line">        <span class="comment"># 筛选我们想要的资源</span></span><br><span class="line">        <span class="keyword">if</span> (name.find(<span class="string">"检查表"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">".jpg"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">".png"</span>) &gt;= <span class="number">0</span>) \</span><br><span class="line">                <span class="keyword">or</span> (name.find(<span class="string">".JPEG"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">"照片"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">"承诺书"</span>) &gt;= <span class="number">0</span>) \</span><br><span class="line">                <span class="keyword">or</span> (name.find(<span class="string">".xlsx"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">"回执"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">"表"</span>) &gt;= <span class="number">0</span>) \</span><br><span class="line">                <span class="keyword">or</span> (name.find(<span class="string">"参赛证明"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">"图片"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">".JPG"</span>) &gt;= <span class="number">0</span>) \</span><br><span class="line">                <span class="keyword">or</span> (name.find(<span class="string">".PNG"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">".jpeg"</span>) &gt;= <span class="number">0</span>) <span class="keyword">or</span> (name.find(<span class="string">".bmp"</span>) &gt;= <span class="number">0</span>):</span><br><span class="line">            <span class="keyword">del</span> (url[name])  <span class="comment"># 删除我们不想要的资源</span></span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># print(name)</span></span><br><span class="line">            i = i + <span class="number">1</span></span><br><span class="line">    print(i)  <span class="comment"># 打印我们想要的资源的数量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">geturl</span><span class="params">(begainurl, href)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    从主页开始，遍历我们想要的页面，获得页面地址</span></span><br><span class="line"><span class="string">    :param begainurl: 主页的url连接</span></span><br><span class="line"><span class="string">    :param href: 每个子页面的连接</span></span><br><span class="line"><span class="string">    :return: None</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    options = webdriver.ChromeOptions()  <span class="comment"># 实例化Chrome浏览器的设置</span></span><br><span class="line">    options.add_argument(<span class="string">"--headless"</span>)</span><br><span class="line">    options.add_argument(<span class="string">"--disable-gpu"</span>)</span><br><span class="line">    driver = webdriver.Chrome(options=options)  <span class="comment"># 实例化Chrome浏览器</span></span><br><span class="line">    driver.get(begainurl)  <span class="comment"># 从主页开始</span></span><br><span class="line">    <span class="comment"># "/html/body/div[4]/div[3]/div[1]/ul/li[7]/a/span[1]"</span></span><br><span class="line">    <span class="comment"># "/html/body/div[4]/div[3]/div[1]/ul/li[6]/a/span[1]"</span></span><br><span class="line">    <span class="comment"># "/html/body/div[4]/div[3]/div[1]/ul/li[5]/a/span[1]"</span></span><br><span class="line">    <span class="comment"># "/html/body/div[4]/div[3]/div[1]/ul/li[4]/a/span[1]"</span></span><br><span class="line">    <span class="comment"># "/html/body/div[4]/div[3]/div[1]/ul/li[4]/a/span[1]"</span></span><br><span class="line">    <span class="comment"># "/html/body/div[4]/div[3]/div[1]/ul/li[2]/a/span[1]"</span></span><br><span class="line">    <span class="comment"># "/html/body/div[4]/div[3]/div[1]/ul/li[1]/a/span[1]"</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">7</span>):</span><br><span class="line">        xpath = <span class="string">"/html/body/div[4]/div[3]/div[1]/ul/li["</span> + str(i) + <span class="string">"]/a/span[1]"</span>  <span class="comment"># 构造xpath</span></span><br><span class="line">        <span class="comment"># print(xpath)</span></span><br><span class="line">        href1 = driver.find_element_by_xpath(xpath).click()  <span class="comment"># 寻找对应的元素并且点击进入下一个页面</span></span><br><span class="line">        soup = bs4.BeautifulSoup(driver.page_source, <span class="string">"html.parser"</span>)  <span class="comment"># 解析页面代码文件</span></span><br><span class="line">        url = soup.iframe.attrs[<span class="string">"src"</span>]  <span class="comment"># 获取想要的连接地址</span></span><br><span class="line">        print(url)</span><br><span class="line">        href.append(url)  <span class="comment"># 将地址添加到列表当中</span></span><br><span class="line">        time.sleep(<span class="number">2</span>)  <span class="comment"># 等待页面加载完毕</span></span><br><span class="line">        driver.get(begainurl)  <span class="comment"># 从主页开始</span></span><br><span class="line">        time.sleep(<span class="number">2</span>)</span><br><span class="line">    time.sleep(<span class="number">2</span>)</span><br><span class="line">    driver.close()  <span class="comment"># 关闭浏览器页面</span></span><br><span class="line">    driver.quit()</span><br><span class="line">    <span class="comment"># print(href)                                                         # 打印获取到的连接列表</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    href = []</span><br><span class="line">    html = []</span><br><span class="line">    url = &#123;&#125;</span><br><span class="line">    beginurl = <span class="string">"https://smartcar.cdstm.cn/index/8.html"</span></span><br><span class="line">    geturl(beginurl, href)  <span class="comment"># 从主页获取每个页面的url连接</span></span><br><span class="line">    getHTMLText(href, html)  <span class="comment"># 获得每个页面的HTML源码</span></span><br><span class="line">    getHref(html, url)  <span class="comment"># 从HTML源码中获得资源名称和连接</span></span><br><span class="line">    hrefNmae(url)  <span class="comment"># 筛选获得到的连接名称和连接地址</span></span><br><span class="line">    print(url.items())  <span class="comment"># 输出资源的名称和连接</span></span><br><span class="line">    getfiles(url)  <span class="comment"># 获取到文件</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">目录</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/01/python%E7%88%AC%E8%99%AB%E4%B8%8B%E8%BD%BD%E6%81%A9%E6%99%BA%E6%B5%A6%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B%E6%8A%80%E6%9C%AF%E6%8A%A5%E5%91%8A/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Python爬虫学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -209,98 +314,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/13/Python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-基于STC89C52RC单片机的密码门锁" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/12/%E5%9F%BA%E4%BA%8ESTC89C52RC%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%A8%E9%94%81/">基于STC89C52RC单片机的密码门锁</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/12/%E5%9F%BA%E4%BA%8ESTC89C52RC%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%A8%E9%94%81/" class="archive-article-date">
-  	<time datetime="2020-03-12T07:57:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="门锁介绍"><a href="#门锁介绍" class="headerlink" title="门锁介绍"></a>门锁介绍</h1><p>这个门锁是我2018年暑假做的一个小作品，是我入门单片机后的第二个作品，第一个是一个船，使用串口通讯，完成了对船的遥控，而在假期，利用放假时间做了这个门锁，做出来已经好长时间了，就做个简单的展示，为刚学51单片机、而且想做一个自己作品的同学提供一个参考。门锁整体由外部（安装后的室外）矩阵键盘和1602显示器，一个电源开关、内部（室内）主控芯片，两个开关门状态控制开关，一个电源开关，一个蜂鸣器，一个L298N电机驱动及一个电动推杆组成。在外部通过4*4矩阵键盘输入密码和操作控制，LCD1602显示器显示状态提示或已输入密码位数；内部由两个按键分别控制开关门。开门或关门后有灯光和蜂鸣器提示状态。</p>
-        
-          <a class="article-more-a" href="/2020/03/12/%E5%9F%BA%E4%BA%8ESTC89C52RC%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%A8%E9%94%81/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">目录</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">门锁</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">STC89C52</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/12/%E5%9F%BA%E4%BA%8ESTC89C52RC%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%A8%E9%94%81/">展开全文 >></a>
         </p>
       
 
@@ -394,6 +407,98 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/12/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E4%B8%8Eyilia%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基于STC89C52RC单片机的密码门锁" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/12/%E5%9F%BA%E4%BA%8ESTC89C52RC%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%A8%E9%94%81/">基于STC89C52RC单片机的密码门锁</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/12/%E5%9F%BA%E4%BA%8ESTC89C52RC%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%A8%E9%94%81/" class="archive-article-date">
+  	<time datetime="2020-03-12T07:57:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="门锁介绍"><a href="#门锁介绍" class="headerlink" title="门锁介绍"></a>门锁介绍</h1><p>这个门锁是我2018年暑假做的一个小作品，是我入门单片机后的第二个作品，第一个是一个船，使用串口通讯，完成了对船的遥控，而在假期，利用放假时间做了这个门锁，做出来已经好长时间了，就做个简单的展示，为刚学51单片机、而且想做一个自己作品的同学提供一个参考。门锁整体由外部（安装后的室外）矩阵键盘和1602显示器，一个电源开关、内部（室内）主控芯片，两个开关门状态控制开关，一个电源开关，一个蜂鸣器，一个L298N电机驱动及一个电动推杆组成。在外部通过4*4矩阵键盘输入密码和操作控制，LCD1602显示器显示状态提示或已输入密码位数；内部由两个按键分别控制开关门。开门或关门后有灯光和蜂鸣器提示状态。</p>
+        
+          <a class="article-more-a" href="/2020/03/12/%E5%9F%BA%E4%BA%8ESTC89C52RC%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%A8%E9%94%81/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">目录</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">门锁</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">STC89C52</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/12/%E5%9F%BA%E4%BA%8ESTC89C52RC%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%AF%86%E7%A0%81%E9%97%A8%E9%94%81/">展开全文 >></a>
         </p>
       
 
@@ -623,6 +728,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yilia主题优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">门锁</a>
               </li>
              
@@ -631,11 +744,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yilia主题优化</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
             
             <div class="clearfix"></div>
